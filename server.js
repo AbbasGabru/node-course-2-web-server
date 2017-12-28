@@ -2,7 +2,7 @@ const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
 
-const port=process.env.PORT || 3000;
+//const port=process.env.PORT || 3000;
 var app=express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -54,6 +54,13 @@ app.get('/about',(req,res)=>{
 	})
 });
 
+app.get('/projects',(req,res)=>{
+	res.render('projects.hbs',{
+		pageTitle:'Projects Page',
+		pageMessage:'Portfolio page here..'
+	});
+})
+
 // create route with /bad and output as json with errorMessage
 
 app.get('/bad',(req,res)=>{
@@ -62,6 +69,6 @@ app.get('/bad',(req,res)=>{
 	});
 })
 
-app.listen(port,()=>{
-	console.log(`Server is up on port ${port}`);
+app.listen(3000,()=>{
+	//console.log(`Server is up on port ${port}`);
 });
